@@ -1,5 +1,5 @@
-# CS234 Project: Setup & Run Documentation
-## Unsupervised Dense Reward Generation for RL Fine-Tuning of BC Policies
+# Project Setup & Run Documentation
+## Unsupervised Dense Reward Generation for RL Fine-Tuning (PPO) of BC Policies
 ![Waypoints](images/tsne_waypoints.png)
 
 ---
