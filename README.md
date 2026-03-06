@@ -14,8 +14,6 @@
 | CUDA Version | 12.8 |
 | Driver Version | 570.195.03 |
 | Python | 3.8.13 (conda env `libero`) |
-| Server | `jason@amd3d` |
-| Project Root | `/234/` |
 
 ---
 
@@ -355,11 +353,4 @@ wait && echo "Done!"
 | PyTorch too old for server kernel | Upgrade to `torch==2.0.1+cu118` |
 | `get_task_embs` crashes | Pass `[task.language]` not `[task]` |
 | BC action shape (10,7) not (7,) | Use `dist.sample()[0, -1]` not `[0]` |
-| `shimmy` not found | `pip install shimmy>=0.2.1` |
-| `gymnasium` version conflict | `pip install gymnasium==0.29.1` |
-| `sklearn` not found | `pip install scikit-learn` |
-| GitHub push 403 error | Token missing — re-set remote URL with token |
-| `screen` not found | Use `tmux` instead |
 | Process killed when terminal closes | Always use `tmux` for long-running jobs |
-| conda not active after reconnect | `source /234/miniconda/bin/activate libero` |
-| `git: dubious ownership` | `git config --global --add safe.directory /234` |
