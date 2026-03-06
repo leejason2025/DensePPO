@@ -1,0 +1,262 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/234/miniconda/envs/libero/lib/python3.8/site-packages/torch/utils/tensorboard/__init__.py:4: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if not hasattr(tensorboard, "__version__") or LooseVersion(
+/234/miniconda/envs/libero/lib/python3.8/site-packages/robosuite/__init__.py:7: DeprecationWarning: The 'warn' method is deprecated, use 'warning' instead
+  ROBOSUITE_DEFAULT_LOGGER.warn("No private macro file found!")
+[robosuite WARNING] No private macro file found! (__init__.py:7)
+[robosuite WARNING] It is recommended to use a private macro file (__init__.py:8)
+[robosuite WARNING] To setup, run: python /234/miniconda/envs/libero/lib/python3.8/site-packages/robosuite/scripts/setup_macros.py (__init__.py:9)
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+=======================================================
+Vanilla PPO Evaluation Results
+=======================================================
+
+Task 0...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 80%  |  Vanilla PPO: 0.0%
+
+Task 1...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 80%  |  Vanilla PPO: 0.0%
+
+Task 2...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 100%  |  Vanilla PPO: 0.0%
+
+Task 3...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 90%  |  Vanilla PPO: 0.0%
+
+Task 4...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 75%  |  Vanilla PPO: 0.0%
+
+Task 5...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 70%  |  Vanilla PPO: 0.0%
+
+Task 6...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 85%  |  Vanilla PPO: 0.0%
+
+Task 7...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 90%  |  Vanilla PPO: 0.0%
+
+Task 8...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 80%  |  Vanilla PPO: 0.0%
+
+Task 9...
+  ep  1: ✗
+  ep  2: ✗
+  ep  3: ✗
+  ep  4: ✗
+  ep  5: ✗
+  ep  6: ✗
+  ep  7: ✗
+  ep  8: ✗
+  ep  9: ✗
+  ep 10: ✗
+  ep 11: ✗
+  ep 12: ✗
+  ep 13: ✗
+  ep 14: ✗
+  ep 15: ✗
+  ep 16: ✗
+  ep 17: ✗
+  ep 18: ✗
+  ep 19: ✗
+  ep 20: ✗
+  BC: 65%  |  Vanilla PPO: 0.0%
+
+=======================================================
+SUMMARY
+=======================================================
+  Task 0: BC=80%  Vanilla PPO=0.0%
+  Task 1: BC=80%  Vanilla PPO=0.0%
+  Task 2: BC=100%  Vanilla PPO=0.0%
+  Task 3: BC=90%  Vanilla PPO=0.0%
+  Task 4: BC=75%  Vanilla PPO=0.0%
+  Task 5: BC=70%  Vanilla PPO=0.0%
+  Task 6: BC=85%  Vanilla PPO=0.0%
+  Task 7: BC=90%  Vanilla PPO=0.0%
+  Task 8: BC=80%  Vanilla PPO=0.0%
+  Task 9: BC=65%  Vanilla PPO=0.0%
+
+  BC Average:          81.5%
+  Vanilla PPO Average: 0.0%
