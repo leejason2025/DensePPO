@@ -1,6 +1,6 @@
 # CS234 Project: Setup & Run Documentation
 ## Unsupervised Dense Reward Generation for RL Fine-Tuning of BC Policies
-**Repo:** https://github.com/leejason2025/DensePPO
+![Waypoints](images/tsne_waypoints.png)
 
 ---
 
