@@ -45,7 +45,7 @@ DensePPO/
     ├── eval_20260305_214058.txt      # Saved eval run (residual PPO)
     ├── eval_vanilla_20260306_122357.txt  # Saved eval run (vanilla PPO)
     ├── ppo_logs/
-    │   ├── task0.log – task9.log    # Residual PPO training logs (task4 missing)
+    │   ├── task0.log – task9.log    # Residual PPO training logs 
     │   └── vanilla_task0.log – vanilla_task9.log
     └── waypoints/
         └── task0_waypoints.pt – task9_waypoints.pt  # K-means waypoint centers
@@ -337,20 +337,12 @@ wait && echo "Done!"
 
 ---
 
-## 10. GitHub
+## 10. Links
 
-### Push Updates
-```bash
-cd /234
-git add scripts/ outputs/eval_*.txt outputs/waypoints/*.pt
-git commit -m "your message"
-git push origin main
-```
-
-### Auth (Personal Access Token required — passwords not supported)
-```bash
-git remote set-url origin https://leejason2025:YOUR_TOKEN@github.com/leejason2025/DensePPO.git
-```
+| Resource | URL |
+|----------|-----|
+| GitHub Repo | https://github.com/leejason2025/DensePPO |
+| HuggingFace Models & Data | https://huggingface.co/datasets/leejason2025/DensePPO |
 
 ---
 
