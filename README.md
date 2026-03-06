@@ -14,8 +14,6 @@
 | CUDA Version | 12.8 |
 | Driver Version | 570.195.03 |
 | Python | 3.8.13 (conda env `libero`) |
-| Server | `jason@amd3d` |
-| Project Root | `/234/` |
 
 ---
 
