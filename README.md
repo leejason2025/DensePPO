@@ -26,12 +26,11 @@ DensePPO/
 ├── DOCUMENTATION.md
 │
 ├── scripts/
-│   ├── eval_ppo.py                  # Evaluate residual PPO models
-│   ├── eval_vanilla_ppo.py          # Evaluate vanilla PPO ablation models
+│   ├── eval_ppo.py                  # Evaluate residual (dense) PPO models
+│   ├── eval_bc_vanilla_ppo.py       # Evaluate BC+Vanilla PPO ablation models
 │   ├── evaluate_waypoints.py        # Compute silhouette scores, timeline plots
-│   ├── residual_ppo.py              # Residual PPO (multi-task version)
 │   ├── residual_ppo_single.py       # Residual PPO (single task, --task arg)
-│   ├── vanilla_ppo_single.py        # Vanilla PPO baseline (--task arg)
+│   ├── bc_vanilla_ppo_single.py     # BC+Vanilla PPO ablation (sparse reward, --task arg)
 │   └── visualization/
 │       ├── extract_frames.py
 │       ├── extract_waypoints.py     # Run BC encoder on demos, K-means cluster
@@ -40,11 +39,12 @@ DensePPO/
 │       └── visualize_waypoints.py   # t-SNE + waypoint timeline plots
 │
 └── outputs/
-    ├── eval_20260305_214058.txt      # Saved eval run (residual PPO)
-    ├── eval_vanilla_20260306_122357.txt  # Saved eval run (vanilla PPO)
+    ├── eval_20260305_214058.txt          # Saved eval run (residual/dense PPO)
+    ├── eval_bc_vanilla_20260309_145353.txt  # Saved eval run (BC+Vanilla PPO ablation)
     ├── ppo_logs/
-    │   ├── task0.log – task9.log    # Residual PPO training logs 
-    │   └── vanilla_task0.log – vanilla_task9.log
+    │   └── task0.log – task9.log        # Residual (dense) PPO training logs
+    ├── ppo_vanilla_logs/
+    │   └── bc_vanilla_task0.log – bc_vanilla_task9.log  # BC+Vanilla PPO training logs
     └── waypoints/
         └── task0_waypoints.pt – task9_waypoints.pt  # K-means waypoint centers
 ```
@@ -282,7 +282,10 @@ nvidia-smi --query-gpu=memory.used,memory.free,utilization.gpu --format=csv && f
 
 ### Kill All PPO Runs
 ```bash
+# Kill residual (dense) PPO runs
 kill $(ps aux | grep residual_ppo_single | grep -v grep | awk '{print $2}')
+# Kill BC+Vanilla PPO runs
+kill $(ps aux | grep bc_vanilla_ppo_single | grep -v grep | awk '{print $2}')
 ```
 
 ### Model Output Location
@@ -306,9 +309,9 @@ source /234/miniconda/bin/activate libero
 python3 /234/scripts/eval_ppo.py 2>&1 | tee /234/outputs/eval_$(date +%Y%m%d_%H%M%S).txt
 ```
 
-### Evaluate Vanilla PPO Ablation
+### Evaluate BC+Vanilla PPO Ablation
 ```bash
-python3 /234/scripts/eval_vanilla_ppo.py 2>&1 | tee /234/outputs/eval_vanilla_$(date +%Y%m%d_%H%M%S).txt
+python3 /234/scripts/eval_bc_vanilla_ppo.py 2>&1 | tee /234/outputs/eval_bc_vanilla_$(date +%Y%m%d_%H%M%S).txt
 ```
 
 ### View All Saved Eval Results
@@ -319,19 +322,39 @@ grep "Task\|Average" /234/outputs/eval_*.txt
 
 ---
 
-## 9. Vanilla PPO Ablation
+## 9. BC + Vanilla PPO Ablation
 
-Vanilla PPO with raw proprio+object state (no BC, sparse reward only) — used to show dense reward is essential.
+BC+Vanilla PPO uses the same residual architecture as the main method (frozen BC policy + PPO residual) but with **sparse reward only** (no waypoints, no dense shaping) — used to isolate the contribution of the dense reward signal.
+
+### Architecture
+- Same as Residual PPO: frozen BC policy provides base 7-dim actions, PPO learns 7-dim residual correction
+- Reward: `+1.0` on task success only (no waypoint progress signal)
+- Observation space: 64-dim latent from frozen BC encoder
 
 ### Run All 10 Tasks in Parallel
 ```bash
 tmux new -s ppo_vanilla
 source /234/miniconda/bin/activate libero
 for i in 0 1 2 3 4 5 6 7 8 9; do
-  python3 /234/scripts/vanilla_ppo_single.py --task $i > /234/outputs/ppo_logs/vanilla_task${i}.log 2>&1 &
+  python3 /234/scripts/bc_vanilla_ppo_single.py --task $i > /234/outputs/ppo_vanilla_logs/bc_vanilla_task${i}.log 2>&1 &
 done
 wait && echo "Done!"
 ```
+
+### Results (BC + Vanilla PPO vs BC + Dense PPO)
+| Task | Description | BC | BC+Vanilla PPO | BC+Dense PPO |
+|------|-------------|-----|----------------|--------------|
+| 0 | Between plate & ramekin | 80% | 80.0% | 75% |
+| 1 | Next to ramekin | 80% | 95.0% | 95% |
+| 2 | Table center | 100% | 100.0% | 95% |
+| 3 | On cookie box | 90% | 85.0% | 90% |
+| 4 | Top drawer | 75% | 75.0% | 100% |
+| 5 | On ramekin | 70% | 90.0% | 85% |
+| 6 | Next to cookie box | 85% | 85.0% | 90% |
+| 7 | On stove | 90% | 95.0% | 95% |
+| 8 | Next to plate | 80% | 70.0% | 85% |
+| 9 | On wooden cabinet | 65% | 80.0% | 75% |
+| **AVG** | | **81.5%** | **85.5%** | **88.5%** |
 
 ---
 
